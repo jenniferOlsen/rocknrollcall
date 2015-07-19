@@ -119,12 +119,7 @@ module.exports = function (grunt) {
             ]
         },
         mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.options.hostname %>:<%= connect.options.port %>/index.html']
-                }
-            }
+            all: ['http://localhost:3501/index.html']
         },
         compass: {
             options: {
