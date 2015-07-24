@@ -1,29 +1,8 @@
-var RocknrollcallYeoman = window.RocknrollcallYeoman = Ember.Application.create();
+var RocknrollcallYeoman = window.RocknrollcallYeoman = Ember.Application.create({
+  LOG_TRANSITIONS: true,
+  LOG_ACTIVE_GENERATION: true
+});
 RocknrollcallYeoman.applicationName = "Rock'n'Roll Call";
-RocknrollcallYeoman.dummySearchResultsArtists = [
-  {
-    id: 1,
-    name: 'Tom Waits',
-    nickname: 'Tommy',
-    type: 'artist',
-    enid: 'ARERLPG1187FB3BB39',
-    hotttnesss: '1'
-  },
-  {
-    id: 2,
-    name: 'Tommy Waits',
-    type: 'artist',
-    enid: 'ARERLPG1187FB3BB40',
-    hotttnesss: '.89'
-  },
-  {
-    id: 3,
-    name: 'Tom Waits w/ Keith Richards',
-    type: 'artist',
-    enid: 'ARERLPG1187FB3BB41',
-    hotttnesss: '.79'
-  }
-];
 
 /* Order and include as you please. */
 require('scripts/controllers/*');
