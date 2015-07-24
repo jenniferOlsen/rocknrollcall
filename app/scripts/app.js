@@ -32,10 +32,21 @@ Ember.Handlebars.helper('hotttnesss-badge', function(value, options) {
 
 RocknrollcallYeoman.ApplicationController = Em.ObjectController.extend({
   searchTerms: '',
-  applicationName: "Rock'n'Roll Call",
+  applicationName: function() {
+    var st = this.get('searchTerms');
+    if (st) {
+      return st
+    } else {
+      return "Rock'n'Roll Call"
+    }
+  }.property('searchTerms'),
   actions: {
     submit: function() {
       this.transitionToRoute('search-results', this.get('searchTerms'));
     }
   }
+});
+RocknrollcallYeoman.SearchResultsController = Em.ObjectController.extend({
+  artistsIsChecked: true,
+  songsIsChecked: true
 });
