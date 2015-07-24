@@ -8,14 +8,14 @@
                 <span class="icon-bar"></span>
             </button>
             {{#link-to "index" class="navbar-brand"}}
-                {{RocknrollcallYeoman.applicationName}}
+                {{applicationName}}
             {{/link-to}}    
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav search-lockup">
                 <li class="search-group">
-                    {{input type="text" class="search-input" placeholder="Search for artists or song names"}}
-                    <button class="btn btn-primary">
+                    {{input action="submit" type="text" class="search-input" placeholder="Search for artists or song names" valueBinding="controller.searchTerms"}}
+                    <button {{action "submit"}} class="btn btn-primary">
                         <i class="glyphicon glyphicon-play"></i>
                     </button>
                 </li>

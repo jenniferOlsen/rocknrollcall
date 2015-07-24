@@ -2,7 +2,6 @@ var RocknrollcallYeoman = window.RocknrollcallYeoman = Ember.Application.create(
   LOG_TRANSITIONS: true,
   LOG_ACTIVE_GENERATION: true
 });
-RocknrollcallYeoman.applicationName = "Rock'n'Roll Call";
 
 /* Order and include as you please. */
 require('scripts/controllers/*');
@@ -29,4 +28,14 @@ Ember.Handlebars.helper('hotttnesss-badge', function(value, options) {
     html += "0</h4>";
   }
   return new Handlebars.SafeString(html);
+});
+
+RocknrollcallYeoman.ApplicationController = Em.ObjectController.extend({
+  searchTerms: '',
+  applicationName: "Rock'n'Roll Call",
+  actions: {
+    submit: function() {
+      this.transitionToRoute('search-results', this.get('searchTerms'));
+    }
+  }
 });
