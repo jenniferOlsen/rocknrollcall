@@ -1,6 +1,5 @@
 var RocknrollcallYeoman = window.RocknrollcallYeoman = Ember.Application.create({
-  LOG_TRANSITIONS: true,
-  LOG_ACTIVE_GENERATION: true
+
 });
 
 /* Order and include as you please. */
@@ -48,5 +47,31 @@ RocknrollcallYeoman.ApplicationController = Em.ObjectController.extend({
 });
 RocknrollcallYeoman.SearchResultsController = Em.ObjectController.extend({
   artistsIsChecked: true,
-  songsIsChecked: true
+  songsIsChecked: true,
+  actions: {
+    viewedArtist: function(model) {
+      var date = Date.now();
+      var activity = this.store.createRecord('activity', {
+        display_id: model.enid,
+        type: model.type,
+        display_name: model.name,
+        hotttnesss: model.hotttnesss,
+        timestamp: date
+      });
+      activity.save();
+      this.transitionToRoute('artist', model.enid);
+  },
+    viewedSong: function(model) {
+      var date = Date.now();
+      var activity = this.store.createRecord('activity', {
+        display_id: model.enid,
+        type: model.type,
+        display_name: model.artist_name,
+        hotttnesss: model.hotttnesss,
+        timestamp: date
+      });
+      activity.save();
+      this.transitionToRoute('song', model.enid);
+    }
+  },
 });
